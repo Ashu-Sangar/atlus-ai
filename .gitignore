@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+*.log
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Firebase / Secrets
+serviceAccountKey.json
+firebase-debug.log
+.firebaserc
+.firebase/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp
