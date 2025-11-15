@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,7 +19,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = ["Features", "Pricing", "About"];
+  const navLinks = ["Features", "Pricing"];
 
   return (
     <motion.nav
@@ -34,16 +35,18 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.div
-            className="flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 400 }}
-          >
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C4B5FD] to-[#93C5FD] flex items-center justify-center">
-              <span className="font-bold">FM</span>
-            </div>
-            <span className="font-semibold tracking-tight">FocusMate AI</span>
-          </motion.div>
+          <Link href="/">
+            <motion.div
+              className="flex items-center gap-2 cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400 }}
+            >
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C4B5FD] to-[#93C5FD] flex items-center justify-center">
+                <span className="font-bold">FM</span>
+              </div>
+              <span className="font-semibold tracking-tight">FocusMate AI</span>
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -56,15 +59,17 @@ export function Navbar() {
                 {link}
               </a>
             ))}
-            <a
-              href="#login"
+            <Link
+              href="/login"
               className="text-white/70 hover:text-white transition-colors duration-200"
             >
               Login
-            </a>
-            <Button className="bg-gradient-to-r from-[#C4B5FD] to-[#93C5FD] hover:opacity-90 transition-opacity border-0">
-              Get Started
-            </Button>
+            </Link>
+            <Link href="/signup">
+              <Button className="bg-gradient-to-r from-[#C4B5FD] to-[#93C5FD] hover:opacity-90 transition-opacity border-0">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -97,16 +102,18 @@ export function Navbar() {
                   {link}
                 </a>
               ))}
-              <a
-                href="#login"
+              <Link
+                href="/login"
                 className="block text-white/70 hover:text-white transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Login
-              </a>
-              <Button className="w-full bg-gradient-to-r from-[#14B8A6] to-[#06B6D4] hover:opacity-90 transition-opacity border-0">
-                Get Started
-              </Button>
+              </Link>
+              <Link href="/signup" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
+                <Button className="w-full bg-gradient-to-r from-[#C4B5FD] to-[#93C5FD] hover:opacity-90 transition-opacity border-0">
+                  Get Started
+                </Button>
+              </Link>
             </div>
           </motion.div>
         )}

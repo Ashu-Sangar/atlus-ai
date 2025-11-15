@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Button } from "./ui/button";
 import { Play } from "lucide-react";
 import { motion } from "framer-motion";
@@ -57,12 +58,14 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
           >
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-[#C4B5FD] to-[#93C5FD] hover:opacity-90 transition-opacity border-0 text-lg px-8 py-6 shadow-[0_0_40px_rgba(196,181,253,0.3)] hover:shadow-[0_0_60px_rgba(196,181,253,0.4)]"
-            >
-              Start Free
-            </Button>
+            <Link href="/signup">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-[#C4B5FD] to-[#93C5FD] hover:opacity-90 transition-opacity border-0 text-lg px-8 py-6 shadow-[0_0_40px_rgba(196,181,253,0.3)] hover:shadow-[0_0_60px_rgba(196,181,253,0.4)]"
+              >
+                Start Free
+              </Button>
+            </Link>
             <Button
               size="lg"
               variant="outline"
