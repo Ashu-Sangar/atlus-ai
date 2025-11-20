@@ -51,7 +51,7 @@ export function StatsCards() {
   const [hoveredStat, setHoveredStat] = useState<number | null>(null);
 
   return (
-    <div className="grid grid-cols-4 gap-5 mb-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       {stats.map((stat, i) => (
         <div
           key={i}
@@ -61,23 +61,24 @@ export function StatsCards() {
         >
           {hoveredStat === i && (
             <div
-              className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity`}
+              className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-500`}
             ></div>
           )}
-          <div className="relative p-6 rounded-2xl bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 hover:border-slate-600/50 transition-all">
-            <div
-              className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${stat.bgGradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
-            >
+          <div className="relative p-6 rounded-2xl bg-[#0a0a12]/60 backdrop-blur-xl border border-white/5 hover:border-white/10 transition-all h-full">
+            <div className="flex items-start justify-between mb-4">
               <div
-                className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center shadow-lg`}
+                className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.bgGradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-white/5`}
               >
-                <stat.icon className="w-6 h-6" />
+                <stat.icon className={`w-6 h-6 text-white`} />
+              </div>
+              <div className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 text-xs font-medium text-emerald-400 flex items-center gap-1">
+                {stat.change}
               </div>
             </div>
-            <div className="text-sm text-slate-400 mb-2">{stat.label}</div>
-            <div className="flex items-end justify-between">
-              <div className="text-3xl font-bold">{stat.value}</div>
-              <div className="text-sm text-emerald-400 font-semibold">{stat.change}</div>
+
+            <div>
+              <div className="text-3xl font-bold text-white mb-1 tracking-tight">{stat.value}</div>
+              <div className="text-sm font-medium text-slate-400">{stat.label}</div>
             </div>
           </div>
         </div>
