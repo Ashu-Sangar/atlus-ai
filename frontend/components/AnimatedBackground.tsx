@@ -38,8 +38,8 @@ export function AnimatedBackground() {
       waveOffset: number;
 
       constructor() {
-        this.baseX = Math.random() * canvas.width;
-        this.baseY = Math.random() * canvas.height;
+        this.baseX = Math.random() * canvas!.width;
+        this.baseY = Math.random() * canvas!.height;
         this.x = this.baseX;
         this.y = this.baseY;
         this.size = Math.random() * 2 + 0.5;
@@ -73,10 +73,10 @@ export function AnimatedBackground() {
         this.y = this.baseY + Math.cos(time * 0.001 + this.waveOffset) * 20;
 
         // Wrap around edges
-        if (this.baseX < 0) this.baseX = canvas.width;
-        if (this.baseX > canvas.width) this.baseX = 0;
-        if (this.baseY < 0) this.baseY = canvas.height;
-        if (this.baseY > canvas.height) this.baseY = 0;
+        if (this.baseX < 0) this.baseX = canvas!.width;
+        if (this.baseX > canvas!.width) this.baseX = 0;
+        if (this.baseY < 0) this.baseY = canvas!.height;
+        if (this.baseY > canvas!.height) this.baseY = 0;
       }
 
       draw() {
@@ -86,13 +86,13 @@ export function AnimatedBackground() {
         const dy = mouseY - this.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         const maxDistance = 250;
-        
+
         // Particles glow brighter when near mouse
         let glowMultiplier = 1;
         if (distance < maxDistance) {
           glowMultiplier = 1 + (1 - distance / maxDistance) * 0.5;
         }
-        
+
         // Light pastel color scheme - soft lavender/blue
         ctx.fillStyle = `rgba(196, 181, 253, ${Math.min(this.opacity * 0.8 * glowMultiplier, 1)})`;
         ctx.beginPath();
@@ -109,7 +109,7 @@ export function AnimatedBackground() {
     const animate = () => {
       time++;
       ctx.fillStyle = "rgba(11, 11, 30, 0.15)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, canvas!.width, canvas!.height);
 
       particles.forEach((particle) => {
         particle.update();
@@ -124,9 +124,8 @@ export function AnimatedBackground() {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 120) {
-            ctx.strokeStyle = `rgba(196, 181, 253, ${
-              (1 - distance / 120) * 0.2
-            })`;
+            ctx.strokeStyle = `rgba(196, 181, 253, ${(1 - distance / 120) * 0.2
+              })`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(particleA.x, particleA.y);

@@ -1,6 +1,6 @@
 "use client";
 
-import { Sidebar } from '../dashboard/components/Sidebar';
+import { Sidebar } from '../../components/Sidebar';
 import {
     BarChart3,
     TrendingUp,
@@ -242,8 +242,8 @@ export default function AnalyticsPage() {
                                         <div
                                             key={i}
                                             className={`rounded-sm transition-all hover:scale-125 ${Math.random() > 0.7 ? 'bg-purple-500' :
-                                                    Math.random() > 0.4 ? 'bg-purple-500/60' :
-                                                        Math.random() > 0.2 ? 'bg-purple-500/30' : 'bg-white/5'
+                                                Math.random() > 0.4 ? 'bg-purple-500/60' :
+                                                    Math.random() > 0.2 ? 'bg-purple-500/30' : 'bg-white/5'
                                                 }`}
                                         ></div>
                                     ))}

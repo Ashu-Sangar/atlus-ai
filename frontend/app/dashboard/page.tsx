@@ -1,6 +1,6 @@
 "use client";
 
-import { Sidebar } from "./components/Sidebar";
+import { Sidebar } from "../../components/Sidebar";
 import { DashboardHeader } from "./components/DashboardHeader";
 import { StatsCards } from "./components/StatsCard";
 import { NextSessionCard } from "./components/NextSession";

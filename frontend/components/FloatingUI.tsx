@@ -23,7 +23,7 @@ export function FloatingUI() {
           </div>
           <div className="text-4xl">4h 32m</div>
           <div className="text-sm text-white/50">Deep work completed</div>
-          
+
           {/* Progress Bar */}
           <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
             <motion.div
@@ -41,19 +41,23 @@ export function FloatingUI() {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="absolute top-12 left-0 w-48 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10 p-4 shadow-xl"
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-12 left-0"
       >
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C4B5FD]/20 to-[#93C5FD]/20 flex items-center justify-center">
-            <TrendingUp size={20} className="text-[#93C5FD]" />
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="w-48 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10 p-4 shadow-xl"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C4B5FD]/20 to-[#93C5FD]/20 flex items-center justify-center">
+              <TrendingUp size={20} className="text-[#93C5FD]" />
+            </div>
+            <div>
+              <div className="text-xs text-white/50">Productivity</div>
+              <div className="text-lg">+23%</div>
+            </div>
           </div>
-          <div>
-            <div className="text-xs text-white/50">Productivity</div>
-            <div className="text-lg">+23%</div>
-          </div>
-        </div>
+        </motion.div>
       </motion.div>
 
       {/* Floating Stat Card 2 */}
@@ -61,19 +65,23 @@ export function FloatingUI() {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 1 }}
-        className="absolute top-32 right-0 w-48 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10 p-4 shadow-xl"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-32 right-0"
       >
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C4B5FD]/20 to-[#93C5FD]/20 flex items-center justify-center">
-            <Target size={20} className="text-[#C4B5FD]" />
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="w-48 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10 p-4 shadow-xl"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C4B5FD]/20 to-[#93C5FD]/20 flex items-center justify-center">
+              <Target size={20} className="text-[#C4B5FD]" />
+            </div>
+            <div>
+              <div className="text-xs text-white/50">Goals Hit</div>
+              <div className="text-lg">12/15</div>
+            </div>
           </div>
-          <div>
-            <div className="text-xs text-white/50">Goals Hit</div>
-            <div className="text-lg">12/15</div>
-          </div>
-        </div>
+        </motion.div>
       </motion.div>
 
       {/* Floating Stat Card 3 */}
@@ -81,19 +89,23 @@ export function FloatingUI() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.2 }}
-        className="absolute bottom-8 left-1/4 w-52 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10 p-4 shadow-xl"
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        className="absolute bottom-8 left-1/4"
       >
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C4B5FD]/20 to-[#93C5FD]/20 flex items-center justify-center">
-            <Clock size={20} className="text-[#93C5FD]" />
+        <motion.div
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          className="w-52 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10 p-4 shadow-xl"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C4B5FD]/20 to-[#93C5FD]/20 flex items-center justify-center">
+              <Clock size={20} className="text-[#93C5FD]" />
+            </div>
+            <div>
+              <div className="text-xs text-white/50">Avg. Session</div>
+              <div className="text-lg">52 min</div>
+            </div>
           </div>
-          <div>
-            <div className="text-xs text-white/50">Avg. Session</div>
-            <div className="text-lg">52 min</div>
-          </div>
-        </div>
+        </motion.div>
       </motion.div>
 
       {/* Glow Effect */}
