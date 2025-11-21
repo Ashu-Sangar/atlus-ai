@@ -26,11 +26,10 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-[#0B0B1E]/80 backdrop-blur-xl border-b border-white/10"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? "bg-[#0B0B1E]/80 backdrop-blur-xl border-b border-white/10"
+        : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -60,12 +59,12 @@ export function Navbar() {
               </a>
             ))}
             <Link
-              href="/login"
+              href="/auth"
               className="text-white/70 hover:text-white transition-colors duration-200"
             >
-              Login
+              Sign In
             </Link>
-            <Link href="/signup">
+            <Link href="/auth">
               <Button className="bg-gradient-to-r from-[#C4B5FD] to-[#93C5FD] hover:opacity-90 transition-opacity border-0">
                 Get Started
               </Button>
@@ -103,13 +102,13 @@ export function Navbar() {
                 </a>
               ))}
               <Link
-                href="/login"
+                href="/auth"
                 className="block text-white/70 hover:text-white transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Login
+                Sign In
               </Link>
-              <Link href="/signup" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
+              <Link href="/auth" onClick={() => setIsMobileMenuOpen(false)} className="w-full">
                 <Button className="w-full bg-gradient-to-r from-[#C4B5FD] to-[#93C5FD] hover:opacity-90 transition-opacity border-0">
                   Get Started
                 </Button>

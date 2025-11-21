@@ -3,12 +3,14 @@
 import { TrendingUp, Calendar, Target, Activity, Settings, LogOut, Zap } from 'lucide-react';
 
 import Link from 'next/link';
+import { useAuth } from '../context/AuthContext';
 
 interface SidebarProps {
   activeTab?: string;
 }
 
 export function Sidebar({ activeTab = 'overview' }: SidebarProps) {
+  const { logout } = useAuth();
   const navItems = [
     { icon: TrendingUp, label: 'Overview', id: 'overview', href: '/dashboard' },
     { icon: Calendar, label: 'Sessions', id: 'sessions', href: '/session' },
@@ -55,7 +57,10 @@ export function Sidebar({ activeTab = 'overview' }: SidebarProps) {
 
       {/* Logout */}
       <div className="mt-auto pt-6 border-t border-white/5">
-        <div className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-red-500/10 cursor-pointer transition-all text-slate-400 hover:text-red-400 group">
+        <div
+          onClick={logout}
+          className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-red-500/10 cursor-pointer transition-all text-slate-400 hover:text-red-400 group"
+        >
           <LogOut className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           <span className="font-medium">Logout</span>
         </div>

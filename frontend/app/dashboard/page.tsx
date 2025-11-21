@@ -8,8 +8,11 @@ import { RecentSessions } from "./components/RecentSessions";
 import { ProductivityChart } from "./components/ProductivityChart";
 import { TaskList } from "./components/TaskList";
 import { AIInsights } from "./components/AIInsights";
+import { useAuth } from "../../context/AuthContext";
 
 export default function DashboardPage() {
+  const { user } = useAuth();
+
   const handleStartSession = () => {
     console.log("Starting session...");
     // Add your session start logic here
@@ -28,7 +31,10 @@ export default function DashboardPage() {
 
       {/* Main Content */}
       <div className="relative flex-1 overflow-auto z-10">
-        <DashboardHeader userName="Alex" onStartSession={handleStartSession} />
+        <DashboardHeader
+          userName={user?.displayName || user?.email?.split('@')[0] || 'FocusMate User'}
+          onStartSession={handleStartSession}
+        />
 
         <div className="p-8 max-w-7xl mx-auto space-y-8">
           {/* Overview Header */}
