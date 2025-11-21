@@ -30,7 +30,7 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#0B0B1E] text-white overflow-hidden">
+    <div className="relative min-h-screen bg-[#09090b] dark:bg-[#09090b] light:bg-white text-white dark:text-white light:text-black overflow-hidden">
       <AnimatedBackground />
       <Navbar />
       <Hero />

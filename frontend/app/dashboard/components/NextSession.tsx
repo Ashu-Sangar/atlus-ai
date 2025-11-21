@@ -20,11 +20,11 @@ export function NextSessionCard({
   return (
     <div className="relative overflow-hidden rounded-3xl group">
       {/* Background with gradient and pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-purple-500 to-cyan-500 opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-500 to-secondary-500 opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20 mix-blend-overlay"></div>
 
       {/* Glow effect */}
-      <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-cyan-400/30 rounded-full blur-3xl group-hover:bg-cyan-300/40 transition-all duration-700"></div>
+      <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-secondary-400/30 rounded-full blur-3xl group-hover:bg-secondary-300/40 transition-all duration-700"></div>
 
       <div className="relative p-8">
         <div className="flex items-center justify-between mb-8">
@@ -34,7 +34,7 @@ export function NextSessionCard({
           </div>
           <button
             onClick={onStart}
-            className="px-6 py-3 rounded-xl bg-white text-purple-600 hover:bg-purple-50 transition-all font-bold text-sm flex items-center gap-2 shadow-xl hover:scale-105 hover:shadow-2xl transform duration-300"
+            className="px-6 py-3 rounded-xl bg-white text-primary-600 hover:bg-primary-50 transition-all font-bold text-sm flex items-center gap-2 shadow-xl hover:scale-105 hover:shadow-2xl transform duration-300"
           >
             <Play className="w-4 h-4 fill-current" />
             Start Now

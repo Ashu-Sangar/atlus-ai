@@ -104,11 +104,11 @@ export default function SessionPage() {
   const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
-    <div className="relative min-h-screen bg-[#030014] text-white overflow-hidden font-sans selection:bg-purple-500/30">
+    <div className="relative min-h-screen bg-[#09090b] text-white overflow-hidden font-sans selection:bg-primary-500/30">
       {/* Ambient Background Effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] animate-pulse mix-blend-screen"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-cyan-600/20 rounded-full blur-[120px] animate-pulse mix-blend-screen" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary-600/20 rounded-full blur-[120px] animate-pulse mix-blend-screen"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-secondary-600/20 rounded-full blur-[120px] animate-pulse mix-blend-screen" style={{ animationDelay: '2s' }}></div>
         <div className="absolute top-[40%] left-[60%] w-[300px] h-[300px] bg-blue-600/10 rounded-full blur-[100px] animate-pulse mix-blend-screen" style={{ animationDelay: '4s' }}></div>
       </div>
 
@@ -136,8 +136,8 @@ export default function SessionPage() {
           <button
             onClick={() => setSoundEnabled(!soundEnabled)}
             className={`p-3 rounded-full border transition-all backdrop-blur-sm ${soundEnabled
-                ? "bg-purple-500/20 border-purple-500/30 text-purple-300"
-                : "bg-white/5 hover:bg-white/10 border-white/10 hover:border-white/20 text-slate-400"
+              ? "bg-primary-500/20 border-primary-500/30 text-primary-300"
+              : "bg-white/5 hover:bg-white/10 border-white/10 hover:border-white/20 text-slate-400"
               }`}
           >
             {soundEnabled ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
@@ -145,8 +145,8 @@ export default function SessionPage() {
           <button
             onClick={() => setShowNotes(!showNotes)}
             className={`p-3 rounded-full border transition-all backdrop-blur-sm ${showNotes
-                ? "bg-cyan-500/20 border-cyan-500/30 text-cyan-300"
-                : "bg-white/5 hover:bg-white/10 border-white/10 hover:border-white/20 text-slate-400"
+              ? "bg-secondary-500/20 border-secondary-500/30 text-secondary-300"
+              : "bg-white/5 hover:bg-white/10 border-white/10 hover:border-white/20 text-slate-400"
               }`}
           >
             <FileText className="w-5 h-5" />
@@ -159,7 +159,7 @@ export default function SessionPage() {
         {/* Progress Ring */}
         <div className="relative mb-16 group">
           {/* Outer Glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
           <svg className="transform -rotate-90 relative z-10 drop-shadow-2xl" width="380" height="380">
             {/* Background ring */}
@@ -228,7 +228,7 @@ export default function SessionPage() {
           {!isRunning ? (
             <button
               onClick={handleStart}
-              className="group relative px-10 py-5 rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 transition-all shadow-[0_0_40px_rgba(168,85,247,0.3)] hover:shadow-[0_0_60px_rgba(168,85,247,0.5)]"
+              className="group relative px-10 py-5 rounded-2xl bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-500 hover:to-secondary-500 transition-all shadow-[0_0_40px_rgba(168,85,247,0.3)] hover:shadow-[0_0_60px_rgba(168,85,247,0.5)]"
             >
               <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="flex items-center gap-3 font-bold text-xl text-white">
@@ -268,13 +268,13 @@ export default function SessionPage() {
         {/* Quick Stats */}
         <div className="grid grid-cols-3 gap-4 md:gap-12 mt-16 w-full max-w-2xl">
           <div className="flex flex-col items-center p-4 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm">
-            <div className="text-2xl font-bold text-purple-300">
+            <div className="text-2xl font-bold text-primary-300">
               {Math.floor((totalTime - timeLeft) / 60)}m
             </div>
             <div className="text-xs font-medium text-slate-500 uppercase tracking-wider mt-1">Elapsed</div>
           </div>
           <div className="flex flex-col items-center p-4 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm">
-            <div className="text-2xl font-bold text-cyan-300">
+            <div className="text-2xl font-bold text-secondary-300">
               {Math.round(progress)}%
             </div>
             <div className="text-xs font-medium text-slate-500 uppercase tracking-wider mt-1">Completed</div>
@@ -304,7 +304,7 @@ export default function SessionPage() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 bottom-0 w-full md:w-[450px] bg-[#0a0a12] border-l border-white/10 z-50 p-8 shadow-2xl"
+              className="fixed right-0 top-0 bottom-0 w-full md:w-[450px] bg-[#09090b] border-l border-white/10 z-50 p-8 shadow-2xl"
             >
               <div className="flex items-center justify-between mb-8">
                 <h3 className="text-xl font-bold text-white">Session Notes</h3>
@@ -320,14 +320,14 @@ export default function SessionPage() {
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="Capture your thoughts, ideas, or distractions here..."
-                className="w-full h-[400px] bg-white/5 border border-white/10 rounded-2xl p-6 text-base resize-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 outline-none text-white placeholder:text-slate-600 leading-relaxed"
+                className="w-full h-[400px] bg-white/5 border border-white/10 rounded-2xl p-6 text-base resize-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500/50 outline-none text-white placeholder:text-slate-600 leading-relaxed"
               />
 
               <div className="mt-8 space-y-4">
-                <div className="p-5 rounded-2xl bg-gradient-to-br from-purple-900/20 to-blue-900/20 border border-purple-500/20">
+                <div className="p-5 rounded-2xl bg-gradient-to-br from-primary-900/20 to-blue-900/20 border border-primary-500/20">
                   <div className="flex items-center gap-3 mb-2">
-                    <Coffee className="w-5 h-5 text-purple-400" />
-                    <span className="font-semibold text-purple-200">Up Next: Break</span>
+                    <Coffee className="w-5 h-5 text-primary-400" />
+                    <span className="font-semibold text-primary-200">Up Next: Break</span>
                   </div>
                   <p className="text-sm text-slate-400 leading-relaxed">
                     You've earned a 5-minute break. We recommend stretching or hydrating to keep your energy levels high.
@@ -355,14 +355,14 @@ export default function SessionPage() {
               className="relative bg-[#0f111a] rounded-3xl border border-white/10 p-10 max-w-md w-full overflow-hidden"
             >
               {/* Background Glow */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-gradient-to-b from-purple-500/20 to-transparent opacity-50"></div>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 bg-gradient-to-b from-primary-500/20 to-transparent opacity-50"></div>
 
               <div className="relative z-10 text-center">
                 <motion.div
                   initial={{ scale: 0, rotate: -180 }}
                   animate={{ scale: 1, rotate: 0 }}
                   transition={{ type: "spring", duration: 0.8 }}
-                  className="w-24 h-24 rounded-full bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center mx-auto mb-8 shadow-[0_0_30px_rgba(168,85,247,0.4)]"
+                  className="w-24 h-24 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center mx-auto mb-8 shadow-[0_0_30px_rgba(168,85,247,0.4)]"
                 >
                   <CheckCircle2 className="w-12 h-12 text-white" />
                 </motion.div>
@@ -380,7 +380,7 @@ export default function SessionPage() {
                       setTotalTime(breakTime);
                       handleStart();
                     }}
-                    className="px-6 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 transition-all font-bold text-white shadow-lg"
+                    className="px-6 py-4 rounded-xl bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-500 hover:to-secondary-500 transition-all font-bold text-white shadow-lg"
                   >
                     Start Break
                   </button>
