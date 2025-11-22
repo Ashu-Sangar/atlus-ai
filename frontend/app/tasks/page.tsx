@@ -28,11 +28,11 @@ export default function TasksPage() {
     const [tasks, setTasks] = useState(initialTasks);
 
     return (
-        <div className="min-h-screen bg-[#030014] text-white flex font-sans selection:bg-purple-500/30">
+        <div className="min-h-screen bg-[#09090b] text-white flex font-sans selection:bg-primary-500/30">
             {/* Ambient Background Effects */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-                <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] animate-pulse mix-blend-screen"></div>
-                <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[120px] animate-pulse mix-blend-screen" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[120px] animate-pulse mix-blend-screen"></div>
+                <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-secondary-600/10 rounded-full blur-[120px] animate-pulse mix-blend-screen" style={{ animationDelay: '2s' }}></div>
             </div>
 
             <Sidebar activeTab="tasks" />
@@ -43,7 +43,7 @@ export default function TasksPage() {
                     {/* Header */}
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                         <div>
-                            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-cyan-400">Tasks</h1>
+                            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-secondary-400">Tasks</h1>
                             <p className="text-slate-400 mt-1">Manage your daily goals and projects</p>
                         </div>
 
@@ -69,7 +69,7 @@ export default function TasksPage() {
                                 </button>
                             </div>
 
-                            <button className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-500 hover:to-cyan-500 text-white font-semibold flex items-center gap-2 shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all hover:scale-105">
+                            <button className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-500 hover:to-secondary-500 text-white font-semibold flex items-center gap-2 shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] transition-all hover:scale-105">
                                 <Plus className="w-5 h-5" />
                                 Add Task
                             </button>
@@ -103,7 +103,7 @@ export default function TasksPage() {
                             <input
                                 type="text"
                                 placeholder="Search tasks..."
-                                className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all text-white placeholder:text-slate-500"
+                                className="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-primary-500/50 focus:ring-1 focus:ring-primary-500/50 transition-all text-white placeholder:text-slate-500"
                             />
                         </div>
                         <button className="px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl flex items-center gap-2 text-slate-400 hover:text-white transition-all">
@@ -123,7 +123,7 @@ export default function TasksPage() {
                                         animate={{ opacity: 1, y: 0 }}
                                         className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-xl p-4 flex items-center gap-4 transition-all cursor-pointer"
                                     >
-                                        <button className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${task.status === 'done' ? 'bg-emerald-500 border-emerald-500' : 'border-slate-600 hover:border-purple-500'}`}>
+                                        <button className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${task.status === 'done' ? 'bg-emerald-500 border-emerald-500' : 'border-slate-600 hover:border-primary-500'}`}>
                                             {task.status === 'done' && <CheckCircle2 className="w-3.5 h-3.5 text-white" />}
                                         </button>
 

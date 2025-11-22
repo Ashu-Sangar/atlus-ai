@@ -22,40 +22,37 @@ export function ProductivityChart() {
   const [activeView, setActiveView] = useState<'week' | 'month' | 'quarter'>('week');
 
   return (
-    <div className="p-6 rounded-3xl bg-slate-800/40 backdrop-blur-sm border border-slate-700/50">
+    <div className="p-6 rounded-3xl bg-slate-800/40 dark:bg-slate-800/40 light:bg-white/40 backdrop-blur-sm border border-slate-700/50 dark:border-slate-700/50 light:border-black/5">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-lg font-bold mb-1">Weekly Productivity</h3>
-          <p className="text-sm text-slate-400">Focus minutes per day</p>
+          <h3 className="text-lg font-bold mb-1 text-white dark:text-white light:text-black">Weekly Productivity</h3>
+          <p className="text-sm text-slate-400 dark:text-slate-400 light:text-slate-600">Focus minutes per day</p>
         </div>
         <div className="flex gap-2">
           <button
             onClick={() => setActiveView('week')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-              activeView === 'week'
-                ? 'bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-purple-300 border border-purple-500/30'
-                : 'bg-slate-700/50 hover:bg-slate-700 text-slate-400 hover:text-white'
-            }`}
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${activeView === 'week'
+                ? 'bg-gradient-to-r from-primary-500/20 to-secondary-500/20 text-primary-300 border border-primary-500/30'
+                : 'bg-slate-700/50 dark:bg-slate-700/50 light:bg-black/5 hover:bg-slate-700 dark:hover:bg-slate-700 light:hover:bg-black/10 text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-white dark:hover:text-white light:hover:text-black'
+              }`}
           >
             Week
           </button>
           <button
             onClick={() => setActiveView('month')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-              activeView === 'month'
-                ? 'bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-purple-300 border border-purple-500/30'
-                : 'bg-slate-700/50 hover:bg-slate-700 text-slate-400 hover:text-white'
-            }`}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeView === 'month'
+                ? 'bg-gradient-to-r from-primary-500/20 to-secondary-500/20 text-primary-300 border border-primary-500/30'
+                : 'bg-slate-700/50 dark:bg-slate-700/50 light:bg-black/5 hover:bg-slate-700 dark:hover:bg-slate-700 light:hover:bg-black/10 text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-white dark:hover:text-white light:hover:text-black'
+              }`}
           >
             Month
           </button>
           <button
             onClick={() => setActiveView('quarter')}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-              activeView === 'quarter'
-                ? 'bg-gradient-to-r from-purple-500/20 to-cyan-500/20 text-purple-300 border border-purple-500/30'
-                : 'bg-slate-700/50 hover:bg-slate-700 text-slate-400 hover:text-white'
-            }`}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${activeView === 'quarter'
+                ? 'bg-gradient-to-r from-primary-500/20 to-secondary-500/20 text-primary-300 border border-primary-500/30'
+                : 'bg-slate-700/50 dark:bg-slate-700/50 light:bg-black/5 hover:bg-slate-700 dark:hover:bg-slate-700 light:hover:bg-black/10 text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-white dark:hover:text-white light:hover:text-black'
+              }`}
           >
             Quarter
           </button>
@@ -71,16 +68,16 @@ export function ProductivityChart() {
             onMouseLeave={() => setHoveredDay(null)}
           >
             <div
-              className="relative w-full rounded-xl bg-gradient-to-t from-purple-500/40 to-cyan-500/40 hover:from-purple-500 hover:to-cyan-500 transition-all cursor-pointer shadow-lg"
+              className="relative w-full rounded-xl bg-gradient-to-t from-primary-500/40 to-secondary-500/40 hover:from-primary-500 hover:to-secondary-500 transition-all cursor-pointer shadow-lg"
               style={{ height: `${(day.height / 220) * 100}%` }}
             >
               {hoveredDay === i && (
-                <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-sm font-semibold whitespace-nowrap shadow-xl">
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-2 rounded-lg bg-slate-800 dark:bg-slate-800 light:bg-white border border-slate-700 dark:border-slate-700 light:border-black/10 text-sm font-semibold whitespace-nowrap shadow-xl text-white dark:text-white light:text-black">
                   {Math.floor(day.height / 60)}h {day.height % 60}m
                 </div>
               )}
             </div>
-            <span className="text-xs text-slate-400 font-medium">{day.label}</span>
+            <span className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-600 font-medium">{day.label}</span>
           </div>
         ))}
       </div>

@@ -19,11 +19,11 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#030014] text-white flex font-sans selection:bg-purple-500/30">
+    <div className="min-h-screen bg-[#09090b] dark:bg-[#09090b] light:bg-white text-white dark:text-white light:text-black flex font-sans selection:bg-primary-500/30">
       {/* Ambient Background Effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] animate-pulse mix-blend-screen"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[120px] animate-pulse mix-blend-screen" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[120px] animate-pulse mix-blend-screen"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-secondary-600/10 rounded-full blur-[120px] animate-pulse mix-blend-screen" style={{ animationDelay: '2s' }}></div>
       </div>
 
       {/* Sidebar */}
@@ -40,7 +40,7 @@ export default function DashboardPage() {
           {/* Overview Header */}
           <div className="flex items-end justify-between">
             <div>
-              <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">Overview</h2>
+              <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 dark:from-white dark:to-slate-400 light:from-black light:to-slate-600">Overview</h2>
               <p className="text-slate-400 mt-1">Your productivity ecosystem at a glance</p>
             </div>
             <div className="text-sm text-slate-500 font-medium px-3 py-1 rounded-full bg-white/5 border border-white/5">
@@ -58,7 +58,7 @@ export default function DashboardPage() {
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-xl font-bold text-white">Focus Sessions</h3>
+                    <h3 className="text-xl font-bold text-white dark:text-white light:text-black">Focus Sessions</h3>
                     <p className="text-sm text-slate-400">Manage your deep work blocks</p>
                   </div>
                 </div>

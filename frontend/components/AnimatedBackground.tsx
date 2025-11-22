@@ -36,6 +36,7 @@ export function AnimatedBackground() {
       baseX: number;
       baseY: number;
       waveOffset: number;
+      color: string;
 
       constructor() {
         this.baseX = Math.random() * canvas!.width;
@@ -47,6 +48,15 @@ export function AnimatedBackground() {
         this.speedY = Math.random() * 0.3 - 0.15;
         this.opacity = Math.random() * 0.4 + 0.2;
         this.waveOffset = Math.random() * Math.PI * 2;
+
+        const colors = [
+          `rgba(249, 115, 22, ${this.opacity})`,   // Orange (Fire)
+          `rgba(6, 182, 212, ${this.opacity})`,    // Cyan (Ice)
+          `rgba(168, 85, 247, ${this.opacity})`,   // Purple (Neon)
+          `rgba(236, 72, 153, ${this.opacity})`,   // Pink (Neon)
+          `rgba(255, 255, 255, ${this.opacity})`,  // White (Stars)
+        ];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
       }
 
       update() {
@@ -93,8 +103,7 @@ export function AnimatedBackground() {
           glowMultiplier = 1 + (1 - distance / maxDistance) * 0.5;
         }
 
-        // Light pastel color scheme - soft lavender/blue
-        ctx.fillStyle = `rgba(196, 181, 253, ${Math.min(this.opacity * 0.8 * glowMultiplier, 1)})`;
+        ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size * glowMultiplier, 0, Math.PI * 2);
         ctx.fill();
@@ -108,8 +117,19 @@ export function AnimatedBackground() {
 
     const animate = () => {
       time++;
-      ctx.fillStyle = "rgba(11, 11, 30, 0.15)";
-      ctx.fillRect(0, 0, canvas!.width, canvas!.height);
+      // Theme-aware background clearing
+      // We use a slight transparency to create trails, but for now let's keep it simple
+      // Actually, to support light/dark mode, we should probably just clear the rect
+      // and let the CSS background show through, OR use a computed style.
+      // But the original code used fillRect with a color.
+      // Let's use a very transparent clear to allow trails, but neutral color.
+      ctx.clearRect(0, 0, canvas!.width, canvas!.height);
+
+      // If we want trails, we need to fillRect with a semi-transparent background color.
+      // But getting the current theme color in JS is tricky without context.
+      // Let's just clear it for now to be safe and let the CSS background handle the color.
+      // ctx.fillStyle = "rgba(9, 9, 11, 0.2)"; // Dark mode trail
+      // ctx.fillRect(0, 0, canvas!.width, canvas!.height);
 
       particles.forEach((particle) => {
         particle.update();

@@ -7,7 +7,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative py-12 px-6 lg:px-8 border-t border-white/10 bg-[#0B0B1E]/50 backdrop-blur-xl">
+    <footer className="relative py-12 px-6 lg:px-8 border-t border-white/10 dark:border-white/10 light:border-black/10 bg-[#09090b]/50 dark:bg-[#09090b]/50 light:bg-white/50 backdrop-blur-xl text-slate-400 dark:text-slate-400 light:text-slate-600">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo */}
@@ -30,7 +30,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-white/50 text-sm"
+            className="text-slate-500 dark:text-slate-500 light:text-slate-600 text-sm"
           >
             © {currentYear} FocusMate AI. All rights reserved.
           </motion.div>
@@ -45,29 +45,29 @@ export function Footer() {
           >
             <a
               href="#twitter"
-              className="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 flex items-center justify-center transition-all duration-200 group"
+              className="w-10 h-10 rounded-lg bg-white/5 dark:bg-white/5 light:bg-black/5 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 border border-white/10 dark:border-white/10 light:border-black/10 hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20 flex items-center justify-center transition-all duration-200 group"
             >
               <Twitter
                 size={18}
-                className="text-white/60 group-hover:text-white transition-colors"
+                className="text-slate-400 dark:text-slate-400 light:text-slate-600 group-hover:text-white dark:group-hover:text-white light:group-hover:text-black transition-colors"
               />
             </a>
             <a
               href="#github"
-              className="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 flex items-center justify-center transition-all duration-200 group"
+              className="w-10 h-10 rounded-lg bg-white/5 dark:bg-white/5 light:bg-black/5 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 border border-white/10 dark:border-white/10 light:border-black/10 hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20 flex items-center justify-center transition-all duration-200 group"
             >
               <Github
                 size={18}
-                className="text-white/60 group-hover:text-white transition-colors"
+                className="text-slate-400 dark:text-slate-400 light:text-slate-600 group-hover:text-white dark:group-hover:text-white light:group-hover:text-black transition-colors"
               />
             </a>
             <a
               href="#linkedin"
-              className="w-10 h-10 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 flex items-center justify-center transition-all duration-200 group"
+              className="w-10 h-10 rounded-lg bg-white/5 dark:bg-white/5 light:bg-black/5 hover:bg-white/10 dark:hover:bg-white/10 light:hover:bg-black/10 border border-white/10 dark:border-white/10 light:border-black/10 hover:border-white/20 dark:hover:border-white/20 light:hover:border-black/20 flex items-center justify-center transition-all duration-200 group"
             >
               <Linkedin
                 size={18}
-                className="text-white/60 group-hover:text-white transition-colors"
+                className="text-slate-400 dark:text-slate-400 light:text-slate-600 group-hover:text-white dark:group-hover:text-white light:group-hover:text-black transition-colors"
               />
             </a>
           </motion.div>

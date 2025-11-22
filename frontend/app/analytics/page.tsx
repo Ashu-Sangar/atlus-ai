@@ -46,17 +46,17 @@ const categoryData = [
 
 const insights = [
     { icon: Zap, title: 'Peak Performance', desc: 'Your best focus time is 10 AM - 12 PM', color: 'text-amber-400', bg: 'bg-amber-500/10' },
-    { icon: Clock, title: 'Session Length', desc: '45-min sessions work best for you', color: 'text-purple-400', bg: 'bg-purple-500/10' },
-    { icon: Calendar, title: 'Consistency', desc: 'Evening planning boosts next day by 23%', color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+    { icon: Clock, title: 'Session Length', desc: '45-min sessions work best for you', color: 'text-primary-400', bg: 'bg-primary-500/10' },
+    { icon: Calendar, title: 'Consistency', desc: 'Evening planning boosts next day by 23%', color: 'text-secondary-400', bg: 'bg-secondary-500/10' },
 ];
 
 export default function AnalyticsPage() {
     return (
-        <div className="min-h-screen bg-[#030014] text-white flex font-sans selection:bg-purple-500/30">
+        <div className="min-h-screen bg-[#09090b] text-white flex font-sans selection:bg-primary-500/30">
             {/* Ambient Background Effects */}
             <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-                <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] animate-pulse mix-blend-screen"></div>
-                <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[120px] animate-pulse mix-blend-screen" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[120px] animate-pulse mix-blend-screen"></div>
+                <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-secondary-600/10 rounded-full blur-[120px] animate-pulse mix-blend-screen" style={{ animationDelay: '2s' }}></div>
             </div>
 
             <Sidebar activeTab="analytics" />
@@ -67,7 +67,7 @@ export default function AnalyticsPage() {
                     {/* Header */}
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                         <div>
-                            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-cyan-400">Analytics</h1>
+                            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-secondary-400">Analytics</h1>
                             <p className="text-slate-400 mt-1">Deep dive into your productivity metrics</p>
                         </div>
 
@@ -92,8 +92,8 @@ export default function AnalyticsPage() {
                     {/* Key Metrics */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         {[
-                            { label: 'Total Focus Hours', value: '34.5h', change: '+12%', icon: Clock, color: 'text-purple-400' },
-                            { label: 'Sessions Completed', value: '42', change: '+8%', icon: Target, color: 'text-cyan-400' },
+                            { label: 'Total Focus Hours', value: '34.5h', change: '+12%', icon: Clock, color: 'text-primary-400' },
+                            { label: 'Sessions Completed', value: '42', change: '+8%', icon: Target, color: 'text-secondary-400' },
                             { label: 'Productivity Score', value: '87', change: '+5%', icon: BarChart3, color: 'text-emerald-400' },
                             { label: 'Current Streak', value: '12 Days', change: 'Best!', icon: Flame, color: 'text-amber-400' },
                         ].map((stat, i) => (
@@ -118,7 +118,7 @@ export default function AnalyticsPage() {
                         <div className="flex items-center justify-between mb-6">
                             <h3 className="text-lg font-bold text-white">Focus Trends</h3>
                             <div className="flex items-center gap-2 text-sm text-slate-400">
-                                <span className="w-3 h-3 rounded-full bg-purple-500"></span> Focus Hours
+                                <span className="w-3 h-3 rounded-full bg-primary-500"></span> Focus Hours
                             </div>
                         </div>
                         <div className="h-[300px] w-full">
@@ -230,9 +230,9 @@ export default function AnalyticsPage() {
                                         <span>Less</span>
                                         <div className="flex gap-0.5">
                                             <div className="w-3 h-3 bg-white/5 rounded-sm"></div>
-                                            <div className="w-3 h-3 bg-purple-500/30 rounded-sm"></div>
-                                            <div className="w-3 h-3 bg-purple-500/60 rounded-sm"></div>
-                                            <div className="w-3 h-3 bg-purple-500 rounded-sm"></div>
+                                            <div className="w-3 h-3 bg-primary-500/30 rounded-sm"></div>
+                                            <div className="w-3 h-3 bg-primary-500/60 rounded-sm"></div>
+                                            <div className="w-3 h-3 bg-primary-500 rounded-sm"></div>
                                         </div>
                                         <span>More</span>
                                     </div>
@@ -241,9 +241,9 @@ export default function AnalyticsPage() {
                                     {Array.from({ length: 84 }).map((_, i) => (
                                         <div
                                             key={i}
-                                            className={`rounded-sm transition-all hover:scale-125 ${Math.random() > 0.7 ? 'bg-purple-500' :
-                                                Math.random() > 0.4 ? 'bg-purple-500/60' :
-                                                    Math.random() > 0.2 ? 'bg-purple-500/30' : 'bg-white/5'
+                                            className={`rounded-sm transition-all hover:scale-125 ${Math.random() > 0.7 ? 'bg-primary-500' :
+                                                Math.random() > 0.4 ? 'bg-primary-500/60' :
+                                                    Math.random() > 0.2 ? 'bg-primary-500/30' : 'bg-white/5'
                                                 }`}
                                         ></div>
                                     ))}
