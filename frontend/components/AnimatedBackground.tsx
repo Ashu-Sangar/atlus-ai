@@ -36,6 +36,7 @@ export function AnimatedBackground() {
       baseX: number;
       baseY: number;
       waveOffset: number;
+      color: string;
 
       constructor() {
         this.baseX = Math.random() * canvas!.width;
@@ -47,6 +48,15 @@ export function AnimatedBackground() {
         this.speedY = Math.random() * 0.3 - 0.15;
         this.opacity = Math.random() * 0.4 + 0.2;
         this.waveOffset = Math.random() * Math.PI * 2;
+
+        const colors = [
+          `rgba(249, 115, 22, ${this.opacity})`,   // Orange (Fire)
+          `rgba(6, 182, 212, ${this.opacity})`,    // Cyan (Ice)
+          `rgba(168, 85, 247, ${this.opacity})`,   // Purple (Neon)
+          `rgba(236, 72, 153, ${this.opacity})`,   // Pink (Neon)
+          `rgba(255, 255, 255, ${this.opacity})`,  // White (Stars)
+        ];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
       }
 
       update() {
@@ -93,15 +103,7 @@ export function AnimatedBackground() {
           glowMultiplier = 1 + (1 - distance / maxDistance) * 0.5;
         }
 
-        // Vibrant multi-colored palette for "Fire & Ice" / "Cyberpunk" feel
-        const colors = [
-          `rgba(249, 115, 22, ${this.opacity})`,   // Orange (Fire)
-          `rgba(6, 182, 212, ${this.opacity})`,    // Cyan (Ice)
-          `rgba(168, 85, 247, ${this.opacity})`,   // Purple (Neon)
-          `rgba(236, 72, 153, ${this.opacity})`,   // Pink (Neon)
-          `rgba(255, 255, 255, ${this.opacity})`,  // White (Stars)
-        ];
-        ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
+        ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size * glowMultiplier, 0, Math.PI * 2);
         ctx.fill();
