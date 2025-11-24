@@ -117,19 +117,7 @@ export function AnimatedBackground() {
 
     const animate = () => {
       time++;
-      // Theme-aware background clearing
-      // We use a slight transparency to create trails, but for now let's keep it simple
-      // Actually, to support light/dark mode, we should probably just clear the rect
-      // and let the CSS background show through, OR use a computed style.
-      // But the original code used fillRect with a color.
-      // Let's use a very transparent clear to allow trails, but neutral color.
       ctx.clearRect(0, 0, canvas!.width, canvas!.height);
-
-      // If we want trails, we need to fillRect with a semi-transparent background color.
-      // But getting the current theme color in JS is tricky without context.
-      // Let's just clear it for now to be safe and let the CSS background handle the color.
-      // ctx.fillStyle = "rgba(9, 9, 11, 0.2)"; // Dark mode trail
-      // ctx.fillRect(0, 0, canvas!.width, canvas!.height);
 
       particles.forEach((particle) => {
         particle.update();
