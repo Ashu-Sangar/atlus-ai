@@ -108,8 +108,7 @@ export function FloatingUI() {
         </motion.div>
       </motion.div>
 
-      {/* Glow Effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-[#C4B5FD]/8 to-[#93C5FD]/8 blur-3xl rounded-full -z-10" />
+
     </div>
   );
 }

@@ -13,7 +13,7 @@ import {
     signInWithPopup
 } from "firebase/auth";
 import { auth } from "../../lib/firebase";
-import { AnimatedBackground } from "../../components/AnimatedBackground";
+
 import { Mail, Lock, User, ArrowRight, Eye, EyeOff, Sparkles, AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
 
@@ -112,13 +112,9 @@ export default function AuthPage() {
 
     return (
         <div className="relative min-h-screen bg-[#09090b] overflow-hidden flex flex-col">
-            <AnimatedBackground />
 
-            {/* Ambient Background Glows */}
-            <div className="fixed inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-[120px] animate-pulse"></div>
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary-500/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-            </div>
+
+
 
             <Navbar />
 

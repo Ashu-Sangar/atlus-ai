@@ -37,8 +37,7 @@ export function Features() {
       id="features"
       className="relative py-32 px-6 lg:px-8 overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[#C4B5FD]/10 rounded-full blur-[100px]" />
+
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
@@ -70,8 +69,7 @@ export function Features() {
               whileHover={{ y: -8, transition: { duration: 0.2 } }}
               className="group relative bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-8 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
             >
-              {/* Glow on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-15 transition-opacity duration-300 rounded-2xl from-[#C4B5FD] to-[#93C5FD] blur-xl" />
+
 
               <div className="relative z-10 space-y-4">
                 {/* Icon */}

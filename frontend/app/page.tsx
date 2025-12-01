@@ -6,7 +6,7 @@ import { Navbar } from "../components/Navbar";
 import { Features } from "../components/Features";
 import { Testimonial } from "../components/Testimonial";
 import { Footer } from "../components/Footer";
-import { AnimatedBackground } from "../components/AnimatedBackground";
+
 
 export default function Page() {
   const [backendMessage, setBackendMessage] = useState("");
@@ -31,7 +31,7 @@ export default function Page() {
 
   return (
     <div className="relative min-h-screen bg-[#09090b] dark:bg-[#09090b] light:bg-white text-white dark:text-white light:text-black overflow-hidden">
-      <AnimatedBackground />
+
       <Navbar />
       <Hero />
       <Features />
