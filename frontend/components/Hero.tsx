@@ -21,36 +21,22 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="inline-block px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full border border-white/10"
-          >
-            <span className="text-sm text-white/70">
-              ✨ AI-Powered Productivity
-            </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-5xl md:text-7xl lg:text-8xl tracking-tight"
+            className="inline-block p-8 -ml-8 rounded-3xl bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl shadow-black/50"
           >
-            Focus smarter.
-            <br />
-            <span className="bg-gradient-to-r from-[#C4B5FD] to-[#93C5FD] bg-clip-text text-transparent">
-              Not harder.
-            </span>
-          </motion.h1>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl tracking-tight font-bold drop-shadow-2xl mb-6">
+              Focus smarter.
+              <br />
+              <span className="bg-gradient-to-r from-[#C4B5FD] to-[#93C5FD] bg-clip-text text-transparent drop-shadow-sm">
+                Not harder.
+              </span>
+            </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-xl text-white/60 max-w-2xl mx-auto lg:mx-0"
-          >
-            AI-powered insights that help you master deep work and eliminate
-            distractions.
-          </motion.p>
+            <p className="text-xl text-white/90 max-w-2xl font-medium drop-shadow-md">
+              AI-powered insights that help you master deep work and eliminate
+              distractions.
+            </p>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -69,39 +55,14 @@ export function Hero() {
             <Button
               size="lg"
               variant="outline"
-              className="border-white/20 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-lg px-8 py-6 group"
+              className="border-white/30 bg-white/10 hover:bg-white/20 backdrop-blur-md text-lg px-8 py-6 group shadow-lg shadow-black/20 text-white"
             >
               <Play size={20} className="mr-2 group-hover:scale-110 transition-transform" />
               Watch Demo
             </Button>
           </motion.div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex gap-8 justify-center lg:justify-start pt-8"
-          >
-            <div>
-              <div className="text-3xl bg-gradient-to-r from-[#C4B5FD] to-[#93C5FD] bg-clip-text text-transparent">
-                10k+
-              </div>
-              <div className="text-sm text-white/50">Active Users</div>
-            </div>
-            <div>
-              <div className="text-3xl bg-gradient-to-r from-[#C4B5FD] to-[#93C5FD] bg-clip-text text-transparent">
-                500k+
-              </div>
-              <div className="text-sm text-white/50">Focus Sessions</div>
-            </div>
-            <div>
-              <div className="text-3xl bg-gradient-to-r from-[#C4B5FD] to-[#93C5FD] bg-clip-text text-transparent">
-                98%
-              </div>
-              <div className="text-sm text-white/50">Satisfaction</div>
-            </div>
-          </motion.div>
+
         </motion.div>
 
         {/* Right Content - Floating UI */}

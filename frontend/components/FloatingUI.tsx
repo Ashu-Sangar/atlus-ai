@@ -11,7 +11,7 @@ export function FloatingUI() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6 shadow-2xl"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 bg-black/40 backdrop-blur-xl rounded-2xl border border-white/20 p-6 shadow-2xl shadow-black/50"
         whileHover={{ scale: 1.02 }}
       >
         <div className="space-y-4">
@@ -46,7 +46,7 @@ export function FloatingUI() {
         <motion.div
           animate={{ y: [0, -10, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="w-48 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10 p-4 shadow-xl"
+          className="w-48 bg-black/40 backdrop-blur-xl rounded-xl border border-white/20 p-4 shadow-xl shadow-black/50"
         >
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C4B5FD]/20 to-[#93C5FD]/20 flex items-center justify-center">
@@ -70,7 +70,7 @@ export function FloatingUI() {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="w-48 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10 p-4 shadow-xl"
+          className="w-48 bg-black/40 backdrop-blur-xl rounded-xl border border-white/20 p-4 shadow-xl shadow-black/50"
         >
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C4B5FD]/20 to-[#93C5FD]/20 flex items-center justify-center">
@@ -94,7 +94,7 @@ export function FloatingUI() {
         <motion.div
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          className="w-52 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10 p-4 shadow-xl"
+          className="w-52 bg-black/40 backdrop-blur-xl rounded-xl border border-white/20 p-4 shadow-xl shadow-black/50"
         >
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C4B5FD]/20 to-[#93C5FD]/20 flex items-center justify-center">
