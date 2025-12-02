@@ -6,7 +6,7 @@ import { Navbar } from "../components/Navbar";
 import { Features } from "../components/Features";
 import { Testimonial } from "../components/Testimonial";
 import { Footer } from "../components/Footer";
-
+import Aurora from "../components/Aurora";
 
 export default function Page() {
   const [backendMessage, setBackendMessage] = useState("");
@@ -31,7 +31,9 @@ export default function Page() {
 
   return (
     <div className="relative min-h-screen bg-[#09090b] dark:bg-[#09090b] light:bg-white text-white dark:text-white light:text-black overflow-hidden">
-
+      <div className="absolute top-0 left-0 w-full h-[600px] z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 100%)' }}>
+        <Aurora />
+      </div>
       <Navbar />
       <Hero />
       <Features />

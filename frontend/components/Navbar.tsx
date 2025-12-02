@@ -26,25 +26,17 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? "bg-[#0B0B1E]/80 backdrop-blur-xl border-b border-white/10"
-        : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-black/50 backdrop-blur-md border-b border-white/10" : "bg-black/20 backdrop-blur-sm"
         }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/">
-            <motion.div
-              className="flex items-center gap-2 cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#C4B5FD] to-[#93C5FD] flex items-center justify-center">
-                <span className="font-bold">FM</span>
-              </div>
-              <span className="font-semibold tracking-tight">FocusMate AI</span>
-            </motion.div>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-12 h-12 transition-transform duration-300 group-hover:scale-110">
+              <img src="/logo.png" alt="Atlus Logo" className="object-contain w-full h-full drop-shadow-md" />
+            </div>
+            <span className="font-bold tracking-tight text-2xl text-white drop-shadow-sm">Atlus</span>
           </Link>
 
           {/* Desktop Navigation */}

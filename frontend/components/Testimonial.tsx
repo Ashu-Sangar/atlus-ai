@@ -54,7 +54,7 @@ export function Testimonial() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-white/60"
           >
-            — FocusMate AI
+            — Atlus
           </motion.div>
 
 

@@ -32,7 +32,7 @@ export function Sidebar({ activeTab = 'overview' }: SidebarProps) {
           </div>
         </div>
         <div>
-          <div className="font-bold text-lg tracking-tight text-white dark:text-white light:text-black">FocusMate</div>
+          <div className="font-bold text-lg tracking-tight text-white dark:text-white light:text-black">Atlus</div>
           <div className="text-xs font-medium text-slate-400 dark:text-slate-400 light:text-slate-600 tracking-wide uppercase">Pro Workspace</div>
         </div>
       </div>

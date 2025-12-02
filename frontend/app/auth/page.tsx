@@ -13,7 +13,7 @@ import {
     signInWithPopup
 } from "firebase/auth";
 import { auth } from "../../lib/firebase";
-
+import Aurora from "../../components/Aurora";
 import { Mail, Lock, User, ArrowRight, Eye, EyeOff, Sparkles, AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
 
@@ -112,10 +112,21 @@ export default function AuthPage() {
 
     return (
         <div className="relative min-h-screen bg-[#09090b] overflow-hidden flex flex-col">
-
-
-
-
+            <div style={{ width: '100%', height: '600px', position: 'relative' }}>
+                <Aurora
+                    enabledWaves={['top', 'middle', 'bottom']}
+                    // Array - specify line count per wave; Number - same count for all waves
+                    lineCount={[10, 15, 20]}
+                    // Array - specify line distance per wave; Number - same distance for all waves
+                    lineDistance={[100, 100, 100]}
+                    bendRadius={8.5}
+                    bendStrength={-1.5}
+                    interactive={true}
+                    parallax={true}
+                    // Define your gradient colors here (hex codes)
+                    linesGradient={['#ffffffff', '#00ff37ff', '#06b6d4']}
+                />
+            </div>
             <Navbar />
 
             {/* Main Content */}
@@ -145,7 +156,7 @@ export default function AuthPage() {
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-400">Conquer your day.</span>
                             </h2>
                             <p className="text-slate-400 leading-relaxed">
-                                Join thousands of high-performers who use FocusMate to organize their life and get things done.
+                                Join thousands of high-performers who use Atlus to organize their life and get things done.
                             </p>
                         </div>
 
