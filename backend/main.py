@@ -3,23 +3,28 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 
-#import models
-from model import SessionBase, SessionCreate, SessionUpdate, SessionDB
+# Import your corrected models
+from model import SessionBase, SessionCreate, SessionUpdate, SessionDB, SessionStatus
 
-# firebase initilization, prevents app already exists error
-if not firebase_admin.apps:
+# --- Firebase Initialization ---
+# --- Firebase Initialization ---
+try:
+    firebase_admin.get_app()
+except ValueError:
+    # Ensure this path matches your actual key file location
     cred = credentials.Certificate("serviceAccountKey.json")
     firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 app = FastAPI()
 
+# --- CORS ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # later restrict to frontend domain
+    allow_origins=["http://localhost:3000"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -29,24 +34,34 @@ app.add_middleware(
 def root():
     return {"message": "FocusMate AI Backend running ✅"}
 
-# Session endpoints
+
+# --- Session Endpoints ---
+
 @app.post("/sessions/start", response_model=SessionDB)
-def start_session(session: SessionCreate):
+def start_session(session_in: SessionCreate):
     try:
-        #create new doc ref to get unqiue id
+        # Generate a new document reference to get a unique ID
         new_doc_ref = db.collection("sessions").document()
         
-        #db object 
+        # Use timezone-aware UTC for consistency
+        current_time = datetime.now(timezone.utc)
+
+        # Create the DB object
+        # NOTE: We use session_id (snake_case) to match your Frontend Interface
         session_db = SessionDB(
-            sessionId=new_doc_ref.id,
+            session_id=new_doc_ref.id, 
             **session_in.model_dump(),
-            start_time=datetime.utcnow(), 
-            session_status=SessionStatus.ACTIVE,
+            start_time=current_time, 
+            status=SessionStatus.ACTIVE, # Set initial status
         )
+        
+        # Save to Firestore (convert models to JSON-compatible dicts)
         new_doc_ref.set(session_db.model_dump(mode="json"))
+        
         return session_db
     
     except Exception as e:
+        print(f"Error starting session: {e}")
         raise HTTPException(status_code=500, detail=str(e))
         
 
@@ -58,15 +73,19 @@ def pause_session(session_id: str):
         if not doc.exists:
             raise HTTPException(status_code=404, detail="Session not found")
         
-        doc_ref.update({"session_status": SessionStatus.PAUSED})
+        # Update status to PAUSED
+        # We use .value to store the string "paused" instead of the Enum object
+        doc_ref.update({"status": SessionStatus.PAUSED.value})
         
-        return{"status": "paused", "session_id": session_id}
+        return {"status": "paused", "session_id": session_id}
     
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.post("/session/{session_id}/resume")
+@app.post("/sessions/{session_id}/resume")
 def resume_session(session_id: str):
     try: 
         doc_ref = db.collection("sessions").document(session_id)
@@ -74,14 +93,18 @@ def resume_session(session_id: str):
         if not doc.exists:
             raise HTTPException(status_code=404, detail="Session not found")
         
-        doc_ref.update({"session_status": SessionStatus.ACTIVE})
+        # Update status back to ACTIVE
+        doc_ref.update({"status": SessionStatus.ACTIVE.value})
         
-        return{"status": "active", "session_id": session_id}
+        return {"status": "active", "session_id": session_id}
     
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.post("/session/{session_id}/end")
+
+@app.post("/sessions/{session_id}/end")
 def end_session(session_id: str, update_data: SessionUpdate):
     try: 
         doc_ref = db.collection("sessions").document(session_id)
@@ -89,54 +112,64 @@ def end_session(session_id: str, update_data: SessionUpdate):
         if not doc.exists:
             raise HTTPException(status_code=404, detail="Session not found")
         
-        session_data = doc.to_dict()
-       
-        start_time = session_data.get("start_time")
-        end_time = datetime.utcnow()
+        end_time = datetime.now(timezone.utc)
 
+        # Base update
         final_update = {
-           "session_status": SessionStatus.COMPLETED,
+           "status": SessionStatus.COMPLETED.value,
            "end_time": end_time,
-       }
+        }
 
-       #option fields
-        if update_data.user_focus_rating:
-                final_update["user_focus_rating"] = update_data.user_focus_rating
-        if update_data.system_focus_score:
-                final_update["system_focus_score"] = update_data.system_focus_score
-        if update_data.final_duration:
-                final_update["final_duration"] = update_data.final_duration
+        # Add optional fields if they exist in the request
+        # We check != None to allow 0 or empty lists if valid
+        if update_data.user_focus_rating is not None:
+            final_update["user_focus_rating"] = update_data.user_focus_rating
+        if update_data.system_focus_score is not None:
+            final_update["system_focus_score"] = update_data.system_focus_score
+        if update_data.final_duration is not None:
+            final_update["final_duration"] = update_data.final_duration
         if update_data.notes:
             final_update["notes"] = update_data.notes
         if update_data.allowed_apps:
             final_update["allowed_apps"] = update_data.allowed_apps
-        if update_data.interuption_events:
-            final_update["interuption_events"] = update_data.interuption_events
-        if update_data.interuption_count:
-            final_update["interuption_count"] = update_data.interuption_count
+        
+        # Note correct spelling: interruption
+        if update_data.interruption_events: 
+            # Convert list of Pydantic models to list of dicts for Firestore
+            events_data = [event.model_dump(mode='json') for event in update_data.interruption_events]
+            final_update["interruption_events"] = events_data
+            
+        if update_data.interruption_count is not None:
+            final_update["interruption_count"] = update_data.interruption_count
 
         doc_ref.update(final_update)
         return {"status": "completed", "session_id": session_id}
     
+    except HTTPException:
+        raise
     except Exception as e:
+        print(f"Error ending session: {e}")
         raise HTTPException(status_code=500, detail=str(e))   
         
 
-@app.get("/session/active/{user_id}")
-def get_active_session(user_id: int): 
+@app.get("/sessions/active/{user_id}")
+def get_active_session(user_id: str): 
     try: 
-        #query for sessions that are either active or paused
         sessions_ref = db.collection("sessions")
-        query = sessions_ref.where("user_id", "==", user_id).where("session_status", "in", ["active", "paused"]).limit(1)
+        
+        # Query: user_id match AND status is Active OR Paused
+        # Note: We query the "status" field now, not "session_status"
+        query = sessions_ref.where("user_id", "==", user_id).where("status", "in", ["active", "paused"]).limit(1)
         results = query.stream()
 
         for doc in results:
             data = doc.to_dict()
+            # Ensure the ID is returned in the response body
             data["session_id"] = doc.id
             return data 
 
+        # Return explicit None or empty JSON if no session found (handled by frontend 200 check)
         return None 
     except Exception as e:
+        print(f"Error fetching active session: {e}")
         raise HTTPException(status_code=500, detail=str(e))
-        
-        
