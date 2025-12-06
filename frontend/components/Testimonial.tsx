@@ -12,8 +12,7 @@ export function Testimonial() {
       ref={ref}
       className="relative py-32 px-6 lg:px-8 overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-[#C4B5FD]/10 rounded-full blur-[120px]" />
+
 
       <div className="relative z-10 max-w-4xl mx-auto">
         <motion.div
@@ -55,12 +54,10 @@ export function Testimonial() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-white/60"
           >
-            — FocusMate AI
+            — Atlus
           </motion.div>
 
-          {/* Decorative Elements */}
-          <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#C4B5FD]/15 to-transparent rounded-full blur-2xl" />
-          <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-[#93C5FD]/15 to-transparent rounded-full blur-2xl" />
+
         </motion.div>
       </div>
     </section>

@@ -13,7 +13,7 @@ import {
     signInWithPopup
 } from "firebase/auth";
 import { auth } from "../../lib/firebase";
-import { AnimatedBackground } from "../../components/AnimatedBackground";
+import FloatingLines from "../../components/FloatingLines";
 import { Mail, Lock, User, ArrowRight, Eye, EyeOff, Sparkles, AlertCircle, CheckCircle2, Loader2 } from "lucide-react";
 import { Navbar } from "../../components/Navbar";
 
@@ -112,12 +112,13 @@ export default function AuthPage() {
 
     return (
         <div className="relative min-h-screen bg-[#09090b] overflow-hidden flex flex-col">
-            <AnimatedBackground />
-
-            {/* Ambient Background Glows */}
-            <div className="fixed inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-[120px] animate-pulse"></div>
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary-500/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute inset-0 z-0 pointer-events-none">
+                <FloatingLines
+                    bendRadius={5.0}
+                    bendStrength={-1}
+                    interactive={true}
+                    parallax={true}
+                />
             </div>
 
             <Navbar />
@@ -149,7 +150,7 @@ export default function AuthPage() {
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-400">Conquer your day.</span>
                             </h2>
                             <p className="text-slate-400 leading-relaxed">
-                                Join thousands of high-performers who use FocusMate to organize their life and get things done.
+                                Join thousands of high-performers who use Atlus to organize their life and get things done.
                             </p>
                         </div>
 
